@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Acampamento ÉFETA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <h1>ACAMPAMENTO ÉFETA</h1>
+    <nav>
+      <button onclick="mostrar('registrarCliente')">Cadastrar</button>
+      <button onclick="mostrar('listaClientes')">Lista de Pessoas</button>
+      <button onclick="mostrar('cadastro')">Cadastrar Produto</button>
+      <button onclick="mostrar('entrada')">Entrada de Produto</button>
+      <button onclick="mostrar('saida')">Saída de Produto</button>
+      <button onclick="mostrar('catalogo')">Catálogo</button>
+    </nav>
+
+    <div id="registrarCliente" class="secao">
+      <h3>Registrar Cliente</h3>
+      <div class="flex">
+        <input type="text" id="nomeCliente" placeholder="Nome do Cliente" />
+        <input type="text" id="telefoneCliente" placeholder="Telefone" />
+        <input type="text" id="cidadeCliente" placeholder="Cidade" />
+        <select id="grupoCliente">
+          <option value="" selected hidden>Selecionar o Grupo</option>
+          <option value="Campista">Campista</option>
+          <option value="Servo">Servo</option>
+        </select>
+        <button onclick="cadastrarCliente()">Salvar Cliente</button>
+      </div>
+    </div>
+
+    <div id="listaClientes" class="secao" style="display:none;">
+  <h3>Lista de Clientes</h3>
+  <input
+    type="text"
+    id="pesquisaCliente"
+    placeholder="Pesquisar cliente por nome..."
+    oninput="filtrarClientes()"
+    style="margin-bottom:10px; padding:5px; width: 100%; max-width: 400px;"
+  />
+  <div id="clientesCadastrados" class="lista-clientes"></div>
+  </div>
+
+
+    <div id="perfilCliente" class="secao" style="display:none;">
+      <div id="detalhesCliente"></div>
+      <div id="filtroPagamentoContainer" style="margin: 10px 0;"></div>
+      <table border="1" width="100%">
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>Produto</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody id="historicoCliente"></tbody>
+      </table>
+      <button onclick="mostrar('listaClientes')">Voltar</button>
+    </div>
+
+    <div id="cadastro" class="secao" style="display:none;">
+      <h3>Cadastrar Produto</h3>
+      <div class="flex">
+        <input type="text" id="codigo" placeholder="Código do Produto" />
+        <input type="text" id="nome" placeholder="Nome do Produto" />
+        <input type="number" id="quantidade" placeholder="Quantidade" />
+        <input type="number" step="0.01" id="valor" placeholder="Valor (R$)" />
+        <button onclick="cadastrarProduto()">Cadastrar</button>
+      </div>
+    </div>
+
+    <div id="entrada" class="secao" style="display:none;">
+      <h3>Entrada de Produto</h3>
+      <div class="flex">
+        <input type="text" id="codigoEntrada" placeholder="Código do Produto" />
+        <input type="number" id="quantidadeEntrada" placeholder="Quantidade" />
+        <button onclick="movimentar('entrada')">Registrar Entrada</button>
+      </div>
+    </div>
+
+    <div id="saida" class="secao" style="display:none;">
+      <h3>Saída de Produto</h3>
+      <div class="flex">
+        <input type="text" id="codigoSaida" placeholder="Código do Produto" />
+        <input type="number" id="quantidadeSaida" placeholder="Quantidade" />
+        <input list="clientesSaida" id="clienteSaida" placeholder="Nome do Cliente" />
+        <datalist id="clientesSaida"></datalist>
+        <button onclick="movimentar('saida')">Registrar Saída</button>
+      </div>
+    </div>
+    <div id="catalogo" class="secao" style="display:none;">
+      <h3>Catálogo de Produtos</h3>
+      <div id="listaCatalogo"></div>
+    </div>
+  </div>
+
+  <script>
+    function getCookie(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        document.cookie.split(';').forEach(c => {
+          const cookie = c.trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          }
+        });
+      }
+      return cookieValue;
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
