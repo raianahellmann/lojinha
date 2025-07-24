@@ -5,7 +5,6 @@ Sistema web simples, desenvolvido com **HTML, CSS e JavaScript**, para auxiliar 
 > **Este projeto está em fase de desenvolvimento.**  
 > O banco de dados ainda **não está implementado**, os dados cadastrados são temporários e armazenados apenas na sessão do navegador.
 
-
 ## Funcionalidades (em desenvolvimento)
 
 ✅ Cadastro de clientes (nome, telefone, cidade, grupo)  
@@ -17,13 +16,11 @@ Sistema web simples, desenvolvido com **HTML, CSS e JavaScript**, para auxiliar 
 ✅ Catálogo de produtos em tempo real  
 🔄 **Futura implementação:** Integração com banco de dados (Django)
 
-
 ## 🚀 Tecnologias utilizadas
 
-- HTML5  
-- CSS3  
-- JavaScript Puro (Vanilla JS)  
-- Datalist (sugestão de nomes)  
+- HTML
+- CSS
+- JavaScript
 - Estrutura em abas usando JS dinâmico
 
 
